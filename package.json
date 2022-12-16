@@ -34,7 +34,6 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "jest --findRelatedTests",
       "npx prettier --write",
       "npx eslint --fix"
     ]
