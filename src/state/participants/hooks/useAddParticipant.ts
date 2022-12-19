@@ -10,7 +10,7 @@ export const useAddParticipant = () => {
 
   const list = useRecoilValue(participantsListState)
 
-  return (participant: Participant) => {
+  const addParticipant = (participant: Participant) => {
     if (list.find((p) => p.name === participant.name)) {
       setErrorMessage('Nome já existe na lista!')
       setTimeout(() => setErrorMessage(''), 3000)
@@ -18,5 +18,9 @@ export const useAddParticipant = () => {
     }
 
     setParticipantsList((participants) => [...participants, participant])
+  }
+
+  return {
+    addParticipant
   }
 }

@@ -10,12 +10,12 @@ export const Form = () => {
   const [inputValue, setInputValue] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
 
-  const addParticipantInList = useAddParticipant()
+  const { addParticipant } = useAddParticipant()
   const errorMessage = useErrorMessage()
 
-  const addParticipant = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleAddParticipant = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    addParticipantInList({
+    addParticipant({
       name: inputValue,
       id: generateRandomId()
     })
@@ -24,7 +24,7 @@ export const Form = () => {
   }
 
   return (
-    <form onSubmit={addParticipant}>
+    <form onSubmit={handleAddParticipant}>
       <input
         ref={inputRef}
         value={inputValue}
